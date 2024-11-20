@@ -1,12 +1,10 @@
-# Your Name Here
+# Colton Riley
 # UWYO COSC 1010
-# Submission Date
+# 11/20/2024
 # Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Lab Section: 15
+# Sources, people worked with, help given to: Collin Peters helped me because i was not reading hash path file.
+#   Used https://www.geeksforgeeks.org/python-hash-method/ to understand the hash() method better
 
 #import modules you will need 
 
@@ -16,6 +14,24 @@ from pathlib import Path
 def get_hash(to_hash):
     """You can use """
     return sha256(to_hash.encode('utf-8')).hexdigest().upper()
+
+rockyoupath = Path('rockyou.txt')
+hashcontent = Path('hash')
+
+rockyoucontent = rockyoupath.read_text()
+rockyoulist = rockyoucontent.split('\n')
+
+hash_string = hashcontent.read_text()
+
+for line in rockyoulist:
+    linehash = get_hash(line)
+    if linehash == hash_string:
+        print(line)
+        break
+    else:
+        continue
+
+
 
 
 
